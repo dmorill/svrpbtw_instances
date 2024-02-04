@@ -1,79 +1,90 @@
-Carpeta Instances
-Contiene los clientes tomados de forma aleatoria de la base de datos de la Multinacional. Este documento se organiza en el siguiente orden:
+Folder Instances
 
-1.) Número de nodos en total incluyendo el depósito
+It contains 4 instance folders: sets of 10, 15, 20, and 30 clients, respectively. Each instance has the following structure:
 
-Paámetros del depósito
-2.) Coordenada X = 0 (cm) ; Coordinadas Y=0 (cm) ; Demanda=0 (cajas) ; Tiempo de servicio=0 (min) ; Tipo de nodo (line 1 /back 0 ) =0 ; Límite inferior TW=0 (min) ; Límite superior TW=1440 (min todo el día) 
+**The first line contains the total number of nodes including the depot.
+**Starting from the second line, there are 7 columns containing the parameters of all nodes, starting with the depot data. Each column contains:
+Column 1: X Coordinate (cm)
+Column 2: Y Coordinate (cm)
+Column 3: Demand (boxes)
+Column 4: Service Time (min)
+Column 5: Node Type (line 1 /back 0)
+Column 6: Lower TW Limit (min)
+Column 7: Upper TW Limit (min)
 
-Parámetros de cada cliente
-3.) Coordenada X (cm) ; Coordinadas Y (cm) ; Demanda (cajas) ; Tiempo de servicio (min) ; Tipo de nodo (line 1 /back 0 ) ; Límite inferior TW (min) ; Límite superior TW (min)
+****In the case of the depot, the values will always be the same in all instances:
+X Coordinate (cm): 0
+Y Coordinate (cm): 0
+Demand (boxes): 0
+Service Time (min): 0
+Node Type (line 1 /back 0): 0
+Lower TW Limit (min): 0
+Upper TW Limit (min): 1440 (indicating it is open all day)
 
-Al final de todos los clientes 
-4.) Matriz de variaciones de un nodo a otro: establecimos 5%, 15% y 25%
+**At the end of the parameters for all clients is the matrix of variations from one node to another. We set 5%, 15%, and 25%, where 5% means low variation in speed, 15% means medium variation, and 25% means high variation.
 
+/////////////////////////////////////////////////////////////////////////
 
+Folder Dats
 
-////////////////////////////
+It contains 4 folders: sets of 10, 15, 20, and 30 clients, respectively. Each folder contains the .dat files of deterministic instances, meaning instances that only have one scenario. The internal structure of each file is as follows:
 
-Carpeta Dats
-Contiene los archivos .dat de las instancias determinista
-
-param V1= cantidad de clientes;
-param COST_cm=0.00451414 Costo por centimetro recorrido (COP);
-param COST_min=2000 costo por minuto recorrido (COP);
-param K1= cantidad de vehiculos;
-param M=9000000 (GRAN M);
-param CV= costo de utilización del vehículo (COP);
-param U=2 capacidad del vehículo (cajas);
-param Dem:= demanda de los clientes (cajas)
+param V1= number of clients;
+param COST_cm=0.00451414 Cost per centimeter traveled (COP); (It is always the same value for all files)
+param COST_min=2000 cost per minute traveled (COP); (It is always the same value for all files)
+param K1= number of vehicles;
+param M=9000000 (BIG M); (It is always the same value for all files)
+param CV= 100000 vehicle utilization cost (COP); (It is always the same value for all files)
+param U=2 vehicle capacity (boxes);
+param Dem:= client demands (boxes)
 ;
 
-param a:= límite inferior TW (min)
+param a:= lower TW limit (min)
 ;
 
-param b:= límite superior TW (min)
+param b:= upper TW limit (min)
 ;
 
-param s: tiempo de servicio (min)
+param s: service time (min)
 ;
 
-param D: matriz de distancias de un nodo a otro (cm)
+param D: distance matrix from one node to another (cm)
 ;
 
-param t: matriz de tiempos de viaje de un nodo a otro (min)
+param t: travel time matrix from one node to another (min)
 
 
-////////////////////////////
+/////////////////////////////////////////////////////////////////////////
 
-Carpeta Escenarios
-Contiene los archivos .dat con el componenete estocástico
+Escenarios Folder
 
-param N= cantidad de escenarios;
-param V1= cantidad de clientes;
-param COST_cm=0.00451414 Costo por centimetro recorrido (COP);
-param COST_min=2000 costo por minuto recorrido (COP);
-param K1= cantidad de vehiculos;
-param FC=83333.3; //factor de conversión que no se utilizó pero que se agregó a los archivos
-param M=9000000 (GRAN M);
-param CV= costo de utilización del vehículo (COP);
-param U=2 capacidad del vehículo (cajas);
-param Dem:= demanda de los clientes (cajas)
+It contains 4 folders: sets of 10, 15, 20, and 30 clients, respectively. Each folder contains the .dat files with the stochastic component, meaning they contain the generated scenarios. The internal structure of each file is as follows:
+
+param N= number of scenarios;
+param V1= number of clients;
+param COST_cm=0.00451414 Cost per centimeter traveled (COP); (It is always the same value for all files)
+param COST_min=2000 cost per minute traveled (COP); (It is always the same value for all files)
+param K1= number of vehicles;
+param FC=83333.3; //conversion factor that was not used but added to the files
+param M=9000000 (BIG M); (It is always the same value for all files)
+param CV= 100000 vehicle utilization cost (COP); (It is always the same value for all files)
+param U=2 vehicle capacity (boxes);
+param Dem:= client demands (boxes)
 ;
 
-param a:= límite inferior TW (min)
+param a:= lower TW limit (min)
 ;
 
-param b:= límite superior TW (min)
+param b:= upper TW limit (min)
 ;
 
-param s: tiempo de servicio (min)
+param s: service time (min)
 ;
 
-param D: matriz de distancias de un nodo a otro (cm)
+param D: distance matrix from one node to another (cm)
 ;
 
-param t: matriz de tiempos de viaje de un nodo a otro (min)
+param t: travel time matrix from one node to another (min)
 
-param E:= matriz de tiempos por cada escenario
-[*,*,1]:
+param E:= matrix of times for each scenario
+[,,1]:
